@@ -16,10 +16,9 @@
 {
 	Byte bytes[8];
 	
-	double divider = 1;
+	unsigned char *v = (unsigned char *)&value;
 	for (int i = 0; i < length; i++){
-		bytes[length - i - 1] = (long)(value / divider) % 256;
-		divider *= 256;
+		bytes[length - i - 1] = v[i];
 	}
     
 	[self appendBytes:&bytes length:length];
